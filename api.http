@@ -1,0 +1,5 @@
+### Gibt Hallo Welt zurück
+GET http://localhost:8080/api
+
+### Schiebe einen String in die API
+POST http://localhost:8080/api
