@@ -2,24 +2,34 @@ package de.pdv.demo.carrentals.service;
 
 import org.springframework.stereotype.Component;
 
+import de.pdv.demo.carrentals.model.Car;
+import de.pdv.demo.carrentals.repository.CarRepository;
+import jakarta.persistence.Id;
+
 
 @Component
-public class carService {
+public class CarService {
 
-    public String getAllCars() {
-        return cars
+    public CarService (CarRepository carrepository) {
+        this.carrepository = carrepository;
     }
 
-    public String getCarById(Long id) {
-        return 
+    private final CarRepository carrepository;
+
+    public Iterable<Car> getAllCars() {
+        return carrepository.findAll();
     }
 
-    public String saveCar(Car car) {
-        return 
+    public Iterable<Car> getCarById(Long id) {
+        return carrepository.findById(ID id);
     }
 
-    public String deleteCar(Long id) {
-        return
+    public Iterable<Car> saveCar(Car car) {
+        return  carrepository.saveAll(Iterable<Car>);
+    }
+
+    public Iterable<Car> deleteCar(Long id) {
+        return  carrepository.deleteById(ID id);
     }
 
 }

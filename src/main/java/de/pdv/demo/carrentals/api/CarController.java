@@ -9,12 +9,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import de.pdv.demo.carrentals.model.Car;
-import de.pdv.demo.service.carService;
+import de.pdv.demo.carrentals.service.CarService;
+
 
 
 @RestController
 @RequestMapping("api/cars/{id}")
 public class CarController {
+
+    public CarController (CarService carService) {
+        this.carService = carService;
+    }
+
+    private final CarService carService;
 
     @GetMapping("api/cars")
     public Iterable<Car> getAllCars() {
